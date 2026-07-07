@@ -1,0 +1,55 @@
+/* static/css/system_design.css */
+
+/* 1. RESET UNIVERSAL DE CAJA Y MÁRGENES */
+*, *::before, *::after {
+    box-sizing: border-box; /* Reemplaza content-box para evitar desbordamientos */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. VARIABLES DEL SISTEMA (Custom Properties) */
+:root {
+    /* Escala de Espaciado Sistémico */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-xxl: 48px;
+
+    /* Paleta de Colores Pro: Modo Oscuro Predominante */
+    --bg-main: #0f172a;       /* Slate 900 */
+    --bg-card: #1e293b;       /* Slate 800 */
+    --text-primary: #f8fafc;  /* Slate 50 */
+    --text-muted: #94a3b8;    /* Slate 400 */
+    --border-color: #334155;  /* Slate 700 */
+    --accent-sky: #38bdf8;    /* Sky 400 */
+    --accent-emerald: #34d399;/* Emerald 400 */
+}
+
+/* 3. ESTILOS DE BASE SEMÁNTICA */
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll spikes */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 4. CLASES ESTRUCTURALES ATÓMICAS */
+.d-flex { display: flex !important; }
+.flex-column { flex-direction: column !important; }
+.flex-between { justify-content: space-between !important; }
+.align-center { align-items: center !important; }
+.flex-center {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+h1, h2, h3, h4 {
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}

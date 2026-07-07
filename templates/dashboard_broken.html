@@ -1,0 +1,72 @@
+<!-- templates/dashboard_broken.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Legacy - TODO ROTO</title>
+    <!-- Estilos antiguos sin reset ni orden -->
+    <style>
+        /* styles_legacy.css simulado aquí dentro */
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: sans-serif;
+            /* Sin reset global: usa content-box por defecto */
+        }
+        header {
+            margin-bottom: 30px; /* Provocará colapso de margen */
+        }
+        .kpi-container {
+            margin-top: 25px; /* Se fusiona con el del header por colapso */
+            width: 100%;
+        }
+        .card {
+            display: inline-block;
+            width: 48%;
+            background: #1e293b;
+            padding: 15px; /* Al usar content-box, esto ensancha la tarjeta */
+            border: 5px solid #334155; /* Suma más ancho y rompe la línea */
+            margin-right: 12px; /* Espaciado arbitrario inconsistente */
+        }
+        table {
+            width: 100%;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 5px; /* Muy apretado, asfixia visual */
+            text-align: left; /* Todo a la izquierda dificulta comparar números */
+            border: 1px solid #334155;
+        }
+        .btn-legacy {
+            padding: 2px 5px; /* Área de click minúscula, rompe WCAG */
+            background: #38bdf8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dashboard Analítico</h1>
+        <p>Métricas sin sistema espacial.</p>
+    </header>
+
+    <div class="kpi-container">
+        <div class="card">
+            <h3>Ventas Totales</h3>
+            <p>$145,200.00</p>
+        </div>
+        <div class="card">
+            <h3>Órdenes</h3>
+            <p>342</p>
+        </div>
+    </div>
+
+    <table style="background: #1e293b;">
+        <thead>
+            <tr><th>ID</th><th>Cliente</th><th>Monto</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>TX-1004</td><td>Taller Mecánico Automotriz Alfa</td><td>$4,500.00</td></tr>
+        </tbody>
+    </table>
+</body>
+</html>

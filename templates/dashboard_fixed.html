@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refaccionaria Nayib | Arquitecto del Espacio Negativo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/system_design.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout_components.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/generated_utilities.css') }}">
+</head>
+<body>
+
+    <div class="dashboard-container p-md">
+
+        <aside class="sidebar p-lg d-flex flex-column">
+            <div class="sidebar-logo m-b-xl">
+                Refaccionaria Nayib
+            </div>
+            <nav class="d-flex flex-column" style="gap: var(--space-md);">
+                <a href="/" class="nav-link active">📊 Panel Estratégico</a>
+                <a href="/?vacio=true" class="nav-link">📦 Inventario Vacío</a>
+            </nav>
+        </aside>
+
+        <main class="d-flex flex-column">
+            <header class="m-b-lg">
+                <h1 class="m-b-xs">Dashboard Analítico de Ventas</h1>
+                <p style="color: var(--text-muted);">Métricas operativas del taller y facturación.</p>
+            </header>
+
+            <section class="kpi-grid m-b-lg">
+                <div class="kpi-card p-md d-flex flex-between align-center">
+                    <div>
+                        <p style="color: var(--text-muted);" class="m-b-xs">Ingresos Totales (Mes)</p>
+                        <span class="kpi-value" style="color: var(--accent-emerald);">$27,500.00</span>
+                    </div>
+                    <div class="kpi-icon">📈</div>
+                </div>
+
+                <div class="kpi-card p-md d-flex flex-between align-center">
+                    <div>
+                        <p style="color: var(--text-muted);" class="m-b-xs">Órdenes Completadas</p>
+                        <span class="kpi-value">124</span>
+                    </div>
+                    <div class="kpi-icon">🔧</div>
+                </div>
+            </section>
+
+            <section class="table-container p-md">
+                <h3 class="m-b-md">Transacciones del Sistema</h3>
+
+                {% if transacciones %}
+                    <table class="analytics-table">
+                        <thead>
+                            <tr>
+                                <th class="text-left">ID Transacción</th>
+                                <th class="text-left">Cliente / Taller</th>
+                                <th class="text-right">Monto Neto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for t in transacciones %}
+                            <tr>
+                                <td class="text-left" style="font-family: monospace; color: var(--accent-sky);">{{ t.id }}</td>
+                                <td class="text-left" style="font-weight: 500;">{{ t.cliente }}</td>
+                                <td class="text-right" style="font-weight: 600; color: var(--accent-emerald);">{{ t.monto }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="flex-center flex-column p-xxl" style="border: 2px dashed var(--border-color); border-radius: 8px; background-color: rgba(15, 23, 42, 0.2);">
+                        <span style="font-size: 2.5rem;" class="m-b-sm">📦</span>
+                        <h4 class="m-b-xs">No hay datos disponibles</h4>
+                        <p style="color: var(--text-muted);" class="m-b-lg text-center">No se encontraron órdenes registradas para el criterio de búsqueda actual en el servidor.</p>
+                        <a href="/" class="btn-accessible p-x-lg flex-center" style="text-decoration: none;">
+                            Cargar Datos del Servidor
+                        </a>
+                    </div>
+                {% endif %}
+            </section>
+        </main>
+
+    </div>
+
+</body>
+</html>

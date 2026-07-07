@@ -1,0 +1,127 @@
+/* static/css/layout_components.css */
+
+/* MACROESTRUCTURA DE LA INTERFAZ */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-lg); /* Control de espacio limpio sin colapso de márgenes */
+    min-height: 100vh;
+}
+
+/* BARRA LATERAL (Sidebar) */
+.sidebar {
+    background-color: var(--bg-card);
+    border-right: 1px solid var(--border-color);
+    height: 100%;
+}
+
+.sidebar-logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent-sky);
+    border-left: 4px solid var(--accent-sky);
+    padding-left: var(--space-sm);
+}
+
+.nav-link {
+    display: block;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: var(--text-primary);
+}
+
+/* GRILLA DE TARJETAS KPI */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-md);
+}
+
+.kpi-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    min-height: 110px; /* Previene roturas si el contenido backend se extiende */
+}
+
+.kpi-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.kpi-icon {
+    font-size: 1.5rem;
+    padding: var(--space-sm);
+    background-color: rgba(56, 189, 248, 0.1);
+    border-radius: 50%;
+    color: var(--accent-sky);
+}
+
+/* TABLA ANALÍTICA DE DATOS */
+.table-container {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.analytics-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.analytics-table th {
+    background-color: rgba(15, 23, 42, 0.3);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.analytics-table th,
+.analytics-table td {
+    padding: var(--space-md) var(--space-md);
+}
+
+.analytics-table tr:not(:last-child) td {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ALINEACIONES SEMÁNTICAS CONTEXTUALES */
+.text-left { text-align: left; }
+.text-right { text-align: right; } /* Para importes numéricos */
+
+/* BOTÓN TÁCTIL ACCESIBLE (WCAG Target) */
+.btn-accessible {
+    background-color: var(--accent-sky);
+    color: var(--bg-main);
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 44px; /* Área táctil mínima requerida por normativas de accesibilidad */
+    transition: opacity 0.2s ease;
+}
+
+.btn-accessible:hover {
+    opacity: 0.9;
+}
+
+/* VERIFICACIÓN MOBILE-FIRST (Responsividad) */
+@media (max-width: 992px) {
+    .dashboard-container {
+        grid-template-columns: 1fr; /* Sidebar colapsa verticalmente */
+        gap: var(--space-md);
+    }
+
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+}
