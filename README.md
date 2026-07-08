@@ -22,3 +22,12 @@ Este proyecto forma parte de la fase final del módulo **"Gestión de geometría
 1. Asegúrate de tener un entorno virtual activo y las dependencias instaladas:
    ```bash
    pip install -r requirements.txt
+   ```
+2. Genera de forma automatizada las clases atómicas de CSS ejecutando el script de Python:
+   ```bash
+   python tools/style_generator.py
+   ```
+3. Lanza el servidor de desarrollo local de Flask:
+```Bash
+python app.py
+```
